@@ -25,6 +25,9 @@ class TextField extends Component {
     static propTypes = {
     }
 
+    /**
+     * @todo refactor spread implementation to fix console warning
+     */
     render() {
         return (
             <MUITextField
