@@ -6,3 +6,8 @@
     height: calc(100% - 30px);
     overflow: scroll;
 }
+
+.VotingStatistics-Body_type_mobile {
+    height: unset;
+    margin-bottom: 15px;
+}

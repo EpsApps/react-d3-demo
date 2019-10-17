@@ -102,10 +102,16 @@ class VotingStatistics extends Component {
         this.getVotingStatistics(this.state.state);
     }
 
+    getBodyClassName = () => {
+        let className = 'VotingStatistics-Body';
+        if (isMobile()) className += ' VotingStatistics-Body_type_mobile';
+        return className;
+    }
+
     renderProfileForm = () => {
         return (
             <React.Fragment>
-                <div className='VotingStatistics-Body'>
+                <div className={this.getBodyClassName()}>
                     <Typography
                         variant='h4'>
                         Profile Information
@@ -157,6 +163,16 @@ class VotingStatistics extends Component {
         this.setState({ dataSet: event.target.value });
     }
 
+    getChartHeight = () => {
+        let chartHeight = window.innerHeight - 240;
+        if (isMobile()) chartHeight -= 90;
+        return chartHeight;
+    }
+
+    getChartWidth = () => {
+        return window.innerWidth - 60;
+    }
+
     renderPieChart = () => {
         if (!this.props.votingStatistics[this.state.state]) return;
         let unprocessedData = this.props.votingStatistics[this.state.state];
@@ -166,8 +182,8 @@ class VotingStatistics extends Component {
         });
         return (
             <PieChart
-                height={window.innerHeight - 240}
-                width={window.innerWidth - 60}
+                height={this.getChartHeight()}
+                width={this.getChartWidth()}
                 data={mappedData} />
         )
     }
@@ -184,8 +200,8 @@ class VotingStatistics extends Component {
         });
         return (
             <BarChart
-                height={window.innerHeight - 240}
-                width={window.innerWidth - 60}
+                height={this.getChartHeight()}
+                width={this.getChartWidth()}
                 data={processedData} />
         )
     }
@@ -201,7 +217,7 @@ class VotingStatistics extends Component {
         }
         return (
             <React.Fragment>
-                <div className='VotingStatistics-Body'>
+                <div className={this.getBodyClassName()}>
                     <Typography
                         style={{
                             marginBottom: '10px',

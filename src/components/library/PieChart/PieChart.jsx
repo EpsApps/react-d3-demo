@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as d3 from 'd3'
 import isEqual from 'lodash.isequal';
+import { isMobile } from 'utilities/Browser';
 import './PieChart.css';
 
 class PieChart extends Component {
@@ -67,7 +68,6 @@ class PieChart extends Component {
     appendPath = (data, arcGenerator, pie, color) => {
         let path = this.svg.selectAll('path')
             .data(pie(d3.entries(data)))
-
         path
             .enter()
             .append('path')
@@ -79,27 +79,33 @@ class PieChart extends Component {
             .attr('stroke', 'white')
             .style('stroke-width', '2px')
             .style('opacity', 1)
-
         path
             .exit()
             .remove()
     }
 
+    formatNumber = (value) => {
+        if (value % 1 === 0) return Math.trunc(value);
+        if (typeof value === 'string') value = Number.parseFloat(value);
+        return value.toFixed(2);
+    }
+
     appendText = (data, arcGenerator, pie) => {
         let text = this.svg.selectAll('text')
             .data(pie(d3.entries(data)));
-
         text
             .enter()
             .append('text')
             .attr('fill', 'white')
             .style('text-anchor', 'middle')
-            .style('font-size', 17)
-            .text((d) => { return `${d.data.key}: ${d.data.value}` })
+            .style('font-size', (isMobile) ? 14 : 17)
+            .text((d) => { return `${d.data.key} (${this.formatNumber(d.data.value)})` })
             .attr('transform', (d) => { return 'translate(' + arcGenerator.centroid(d) + ')'; })
-
+        /** 
+         * @todo figure out why we this has to be called twice...
+         */
         text
-            .text((d) => { return `${d.data.key}: ${d.data.value}` })
+            .text((d) => { return `${d.data.key} (${this.formatNumber(d.data.value)})` })
             .attr('transform', (d) => { return 'translate(' + arcGenerator.centroid(d) + ')'; })
     }
 
