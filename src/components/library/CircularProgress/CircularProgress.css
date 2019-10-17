@@ -1,0 +1,18 @@
+.CircularProgress-Background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 998;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+  
+.CircularProgress-Container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 999; 
+}
+  

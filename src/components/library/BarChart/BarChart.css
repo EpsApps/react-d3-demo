@@ -1,0 +1,6 @@
+.rectangle {
+	fill: #3F51B5;
+}
+.rectangle:hover {
+	fill: #36d9c6;
+}

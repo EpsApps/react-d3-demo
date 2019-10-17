@@ -1,0 +1,8 @@
+.VotingStatistics {
+    height: 100%;
+}
+
+.VotingStatistics-Body {
+    height: calc(100% - 30px);
+    overflow: scroll;
+}
