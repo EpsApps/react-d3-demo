@@ -137,6 +137,7 @@ class VotingStatistics extends Component {
                         onChange={this.onTextFieldChange('zip')}
                         value={this.state.zip} />
                     <Select
+                        id={'voting-statistics-state-select-form'}
                         value={this.state.state}
                         items={Geography.states}
                         onChange={this.onStateChange}
@@ -145,6 +146,7 @@ class VotingStatistics extends Component {
                 </div>
                 <div className='VotingStatistics-Footer'>
                     <Button
+                        id='voting-statistics-next-button'
                         variant='contained'
                         color='primary'
                         style={{
@@ -229,6 +231,7 @@ class VotingStatistics extends Component {
                         {getDataSetChartTitle(this.state.state, this.state.dataSet, [2006, 2012])}
                     </Typography>
                     <Select
+                        id={'voting-statistics-state-select-chart'}
                         style={{ marginBottom: '20px', marginRight: '20px', display: 'inline-block' }}
                         value={this.state.state}
                         items={Geography.states}
@@ -303,4 +306,13 @@ function mapDispatchToProps() {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps())(VotingStatistics);
+function mergeProps(stateProps, dispatchProps, ownProps) {
+    let props = {
+        ...stateProps,
+        ...dispatchProps,
+        ...ownProps
+    }
+    return props;
+}
+
+export default connect(mapStateToProps, mapDispatchToProps(), mergeProps)(VotingStatistics);

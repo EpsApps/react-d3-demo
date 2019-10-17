@@ -5,19 +5,23 @@
   "dependencies": {
     "@material-ui/core": "^4.5.1",
     "d3": "^5.12.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "jest-enzyme": "^7.1.1",
     "lodash.isequal": "^4.5.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.1",
     "react-scripts": "3.2.0",
+    "react-test-renderer": "^16.10.2",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "request": "^2.88.0"
   },
   "scripts": {
     "start": "cross-env NODE_PATH=src:custom:src/service:src/store:src/components/pages:src/components/deprecated:src/components/pages/components:src/components:src/components/library:components/service:src/utils: react-scripts start",
-    "build": "cross-env NODE_PATH=src:custom:src/service:src/components/pages:src/components:src/components/library:components/service:src/utils: react-scripts build",
-    "test": "react-scripts test",
+    "build": "cross-env NODE_PATH=src:custom:src/service:src/store:src/components/pages:src/components/deprecated:src/components/pages/components:src/components:src/components/library:components/service:src/utils: react-scripts build",
+    "test": "cross-env NODE_PATH=src:custom:src/service:src/store:src/components/pages:src/components/deprecated:src/components/pages/components:src/components:src/components/library:components/service:src/utils: react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

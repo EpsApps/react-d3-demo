@@ -56,14 +56,15 @@ class Select extends Component {
 
     render() {
         return (
-            <FormControl className={this.props.classes.root} style={this.props.style}>
+            <FormControl id={this.props.id} className={this.props.classes.root} style={this.props.style}>
                 {this.renderInputLabel()}
                 <MUISelect
+                    id={`${this.props.id}-muiselect`}
                     value={this.props.value}
                     onChange={this.props.onChange}
                     inputProps={{
                         name: this.props.key,
-                        id: this.props.key,
+                        id: `${this.props.id}-muiselect-input`,
                         className: this.props.classes.inputRoot
                     }}
                     displayEmpty
