@@ -43,14 +43,14 @@ const DATA_SET_CHART_TITLES = {
     [DATA_SET_TOTAL_POPULATION]: 'Total Population (in Thousands)',
     [DATA_SET_TOTAL_CITIZEN]: 'Total Citizens (in Thousands)',
     [DATA_SET_TOTAL_REGISTERED]: 'Total Registered Voters (in Thousands)',
-    [DATA_SET_TOTAL_VOTED]: 'Total Voted (in Thousands)',
+    [DATA_SET_TOTAL_VOTED]: 'Total Actual Voted (in Thousands)',
     [DATA_SET_HISPANIC_POPULATION]: 'Total Hispanic Population (in Thousands)',
     [DATA_SET_HISPANIC_CITIZEN]: 'Total Hispanic Citizens (in Thousands)',
     [DATA_SET_HISPANIC_REGISTERED]: 'Total Hispanic Registered Voters (in Thousands)',
-    [DATA_SET_HISPANIC_VOTED]: 'Total Hispanics Who Voted (in Thousands)',
-    [DATA_SET_PERCENT_HISPANIC_POPULATION]: 'Percent of Hispanic Population',
-    [DATA_SET_PERCENT_HISPANIC_REGISTERED]: 'Percent of Hispanic Registered Voters',
-    [DATA_SET_PERCENT_HISPANIC_VOTED]: 'Percent of Hispanics Who Voted'
+    [DATA_SET_HISPANIC_VOTED]: 'Total Hispanic Actual Voted (in Thousands)',
+    [DATA_SET_PERCENT_HISPANIC_POPULATION]: 'Hispanic Population as a Percent of State Population',
+    [DATA_SET_PERCENT_HISPANIC_REGISTERED]: 'Hispanic Registered Voters as a Percent of Hispanic State Population',
+    [DATA_SET_PERCENT_HISPANIC_VOTED]: 'Hispanic Actual Voted as a Percent of Hispanic State Population'
 }
 
 const getDataSetChartTitle = (state, dataSet, range) => {
