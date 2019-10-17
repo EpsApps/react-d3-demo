@@ -3146,5 +3146,5 @@ console.log(Object.keys(states).length);
 
 Object.keys(stateMap).forEach((key) => {
   let state = stateMap[key];
-  fs.writeFileSync(`./data/states/${stateKeys[key]}.json`, JSON.stringify(state));
+  fs.writeFileSync(`./data/VotingStatistics/${stateKeys[key]}.json`, JSON.stringify(state));
 });
